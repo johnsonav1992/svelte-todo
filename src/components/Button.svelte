@@ -1,22 +1,32 @@
-<button class="button">
+<script>
+    export let rightRounded;
+</script>
+
+<button class="button {rightRounded}"  >
     <slot />
 </button>
 
 <style>
     .button {
         border: none;
+        border-radius: .5rem;
         background-color: #fb3d07;
-        border-top-right-radius:  .5rem;
-        border-bottom-right-radius: .5rem;
         font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        height: 2rem;
         color: white;
-        padding: 10px 15px;
-        font-size: 20px;
-        -webkit-appearance: none;
-        cursor: pointer
+        cursor: pointer;
+        transition: all 200ms ease;
     }
 
     .button:hover {
-        background-color: #f8572b;
+        background-color: rgb(207, 50, 6);
+    }
+
+    .btn-right-rounded {
+        border-top-right-radius:  .5rem;
+        border-bottom-right-radius: .5rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 </style>

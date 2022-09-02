@@ -1,19 +1,25 @@
 <script>
     import Button from "./Button.svelte";
+
 </script>
 
-<form type="submit" class="todo-form">
-    <input type="text" name="todo-input" class="todo-input" placeholder="Add a todo">
-    <Button>Add</Button>
+<form on:submit|preventDefault type="submit" class="todo-form">
+    <input type="text" name="todo-input" class="todo-input" placeholder="Add a todo"><Button rightRounded="btn-right-rounded" >Add</Button>
 </form>
 
 <style>
+    .todo-form {
+        padding: 2rem;
+    }
     .todo-input {
-        display: inline-block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        padding: .5rem;
         border: none;
-        padding: 10px 15px;
-        font-size: 20px;
-        -webkit-appearance: none;
+        height: 2rem;
+        min-width: 300px;
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
     }
 
     .todo-input:hover {
@@ -23,4 +29,5 @@
     .todo-input:focus {
         outline: none;
     }
+
 </style>
