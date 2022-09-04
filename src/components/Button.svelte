@@ -1,8 +1,16 @@
 <script>
+    import { createEventDispatcher } from 'svelte'
+
+    const dispatch = createEventDispatcher()
+
     export let rightRounded;
+
+    function forward(e) {
+        dispatch('forwardclick', e.detail)
+    }
 </script>
 
-<button class="button {rightRounded}"  >
+<button class="button {rightRounded}" on:click={forward} >
     <slot />
 </button>
 

@@ -1,16 +1,20 @@
 <script>
+    import {v4 as uuidv4} from 'uuid'
     import Button from "./Button.svelte";
     import { createEventDispatcher } from 'svelte'
 
     const dispatch = createEventDispatcher()
 
-    let todoItem = ''
-
-    function submitTodo(event) {
-        todoItem = event.target[0].value
-        dispatch('addTodo', todoItem)
-        todoItem = ''
+    function submitTodo(e) {
+        let newTodo = {
+            id: uuidv4(),
+            text: e.target[0].value,
+            completed: false
+        }
         
+        dispatch('addTodo', newTodo)
+
+        e.target[0].value = ''
     }
 </script>
 
