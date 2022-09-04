@@ -1,10 +1,25 @@
 <script>
     import Button from "./Button.svelte";
+    import { createEventDispatcher } from 'svelte'
 
+    const dispatch = createEventDispatcher()
+
+    let todoItem = ''
+
+    function submitTodo(event) {
+        todoItem = event.target[0].value
+        dispatch('addTodo', todoItem)
+        todoItem = ''
+        
+    }
 </script>
 
-<form on:submit|preventDefault type="submit" class="todo-form">
-    <input type="text" name="todo-input" class="todo-input" placeholder="Add a todo"><Button rightRounded="btn-right-rounded" >Add</Button>
+<form on:submit|preventDefault={submitTodo} type="submit" class="todo-form" >
+    <input type="text" 
+        name="todo-input" 
+        class="todo-input" 
+        placeholder="Add a todo" 
+    ><Button rightRounded="btn-right-rounded" >Add</Button>
 </form>
 
 <style>

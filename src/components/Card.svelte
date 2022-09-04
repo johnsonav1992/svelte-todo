@@ -6,6 +6,7 @@
     .card {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 1rem;
         font-family: 'Poppins', sans-serif;
         background-color: white;
